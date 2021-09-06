@@ -1,0 +1,27 @@
+<div class="mt-2">
+    <p>Có {{books.length}} cuốn sách</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Tên sách</th>
+            <th scope="col">Tác giả</th>
+            <th scope="col">Mô tả</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let book of books ">
+            <th scope="row">{{ book.id }}</th>
+            <td><a routerLink="/detail/{{ book.id }}" title="Xem chi tiết">{{ book.title }}</a></td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.description }}</td>
+            <td>
+                <button routerLink="/edit/{{ book.id }}" class="btn btn-primary"><i class="fas fa-edit"></i>Cập nhật</button> |
+                <button (click)="deleteBooks(book)" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Xóa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
